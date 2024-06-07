@@ -39,7 +39,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "coloredlogs==15.0.1",
-        "deepspeed==0.7.7",
+        "deepspeed>=0.7.7",
         "diskcache==5.4.0",
         "einops==0.6.0",
         "encodec==0.1.1",
