@@ -43,7 +43,6 @@ class Config(ConfigBase):
     min_phones: int = 10
     max_phones: int = 50
 
-    use_fp16: bool = True
     gradient_accumulation_steps: int = 1
     sampling_temperature: float = 1.0
 
@@ -52,12 +51,6 @@ class Config(ConfigBase):
     @cached_property
     def get_spkr(self):
         return eval(self.spkr_name_getter)
-
-    @property
-    def fp16_cfg(self):
-        return {
-            "enabled": self.use_fp16,
-        }
 
     @property
     def ds_cfg(self):
@@ -79,7 +72,6 @@ class Config(ConfigBase):
                 },
             },
             "gradient_clipping": self.gradient_clipping,
-            "fp16": self.fp16_cfg,
         }
 
     @property
